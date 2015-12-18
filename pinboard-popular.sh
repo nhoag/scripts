@@ -24,7 +24,7 @@ done
 function pinboard_popular() {
   local PB_DATE=$(date '+%Y%m%d')
   local OUT_FILE_STEM="pinboard-popular_"
-  local OUT_FILE_ID="${OUT_FILE_STEM}_${PB_DATE}"
+  local OUT_FILE_ID="${OUT_FILE_STEM}${PB_DATE}"
   local OUT_FILE="${TMPDIR}${OUT_FILE_ID}"
   if [[ -f $OUT_FILE ]]; then
     local EXCLUDE_FILE="! -name ${OUT_FILE_ID}"
