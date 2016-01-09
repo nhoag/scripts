@@ -67,6 +67,8 @@ function pinboard_popular() {
     | sed -E "s/&acirc;&#128;&#14(7|8);/-/g" \
     | sed -E "s/&acirc;&#128;&#153;/'/g" \
     | sed -E 's/&acirc;&#128;&#15(6|7);/"/g' \
+    | sed -E 's/&acirc;&#128;&brvbar;/…/g' \
+    | sed -E 's/&Acirc;&middot;/·/g' \
     | sed -E 's/&amp;/\&/g' \
     | awk \
       -v past_trends="${PAST_TRENDS}" \
