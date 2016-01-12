@@ -64,12 +64,7 @@ function pinboard_popular() {
     | sed -E 's#^"##' \
     | exclude_domain \
     | sed -E 's#"#\'$'\n#' \
-    | sed -E "s/&acirc;&#128;&#14(7|8);/-/g" \
-    | sed -E "s/&acirc;&#128;&#153;/'/g" \
-    | sed -E 's/&acirc;&#128;&#15(6|7);/"/g' \
-    | sed -E 's/&acirc;&#128;&brvbar;/…/g' \
-    | sed -E 's/&Acirc;&middot;/·/g' \
-    | sed -E 's/&amp;/\&/g' \
+    | perl -MHTML::Entities -pe 'decode_entities($_);' \
     | awk \
       -v past_trends="${PAST_TRENDS}" \
       -v out_file="${OUT_FILE}" '
