@@ -67,6 +67,7 @@ function github-trends() {
     | sed 's/^[ ]*//;
       s/[ ]*$//;
       s/\"$//;' \
+    | perl -MHTML::Entities -pe 'decode_entities($_);' \
     | awk \
       -v past_trends="${PAST_TRENDS}" \
       -v out_file="${OUT_FILE}" '
