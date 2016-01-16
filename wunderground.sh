@@ -36,7 +36,7 @@ curl -sS ${BASE_URL}${WU_AUTH}/conditions/q/${WU_STATE}/${WU_LOCALE}.json \
   | jq '.current_observation
      | "Weather Report for " + .display_location.city + ", "
        + .display_location.state_name + ". " + .observation_time
-       + ". The weather is " + .weather + " with visibility of " + .visibility_mi
+       + ". Current conditions are " + .weather + " with visibility of " + .visibility_mi
        + " miles. The temperature is \(.temp_f) degrees Farhenheit and feels like "
        + .feelslike_f + ". Wind is " + .wind_string + "."' \
   | sed 's/\.0//g'
